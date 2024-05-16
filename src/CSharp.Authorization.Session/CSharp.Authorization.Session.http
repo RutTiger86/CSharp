@@ -1,0 +1,6 @@
+@CSharp.Authorization.Session_HostAddress = http://localhost:5069
+
+GET {{CSharp.Authorization.Session_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
