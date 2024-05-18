@@ -1,4 +1,4 @@
-﻿namespace CSharp.Authorization.Session.Models
+﻿namespace CSharp.RestAPI.Logging.Models
 {
     public class BaseResponse<T>
     {

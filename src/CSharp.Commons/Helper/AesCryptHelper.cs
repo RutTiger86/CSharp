@@ -16,9 +16,12 @@ namespace CSharp.Commons.Helper
 
         public static string Encrypt(string plainInput, byte[] key, byte[] iv)
         {
-            if (string.IsNullOrEmpty(plainInput)) throw new ArgumentNullException("Input");
-            if (key?.Length <= 0) throw new ArgumentNullException("Key");
-            if (iv?.Length <= 0) throw new ArgumentNullException("IV");
+            if (string.IsNullOrEmpty(plainInput)) throw new ArgumentNullException(nameof(plainInput));
+            if (key?.Length <= 0) throw new ArgumentNullException(nameof(key));
+            ArgumentNullException.ThrowIfNull(key);
+            if (iv?.Length <= 0) throw new ArgumentNullException(nameof(key));
+            ArgumentNullException.ThrowIfNull(iv);
+
 
             byte[] encrypted;
 
@@ -43,9 +46,11 @@ namespace CSharp.Commons.Helper
 
         public static string Decrypt(string cipherInput, byte[] key, byte[] iv)
         {
-            if (string.IsNullOrEmpty(cipherInput)) throw new ArgumentNullException("cipherInput");
-            if (key?.Length <= 0) throw new ArgumentNullException("Key");
-            if (iv?.Length <= 0) throw new ArgumentNullException("IV");
+            if (string.IsNullOrEmpty(cipherInput)) throw new ArgumentNullException(nameof(cipherInput));
+            if (key?.Length <= 0) throw new ArgumentNullException(nameof(key));
+            ArgumentNullException.ThrowIfNull(key);
+            if (iv?.Length <= 0) throw new ArgumentNullException(nameof(key));
+            ArgumentNullException.ThrowIfNull(iv);
 
             var cipherByte = Convert.FromBase64String(cipherInput);
             string result = string.Empty;
