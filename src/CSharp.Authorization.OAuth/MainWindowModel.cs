@@ -105,7 +105,7 @@ namespace CSharp.Authorization.OAuth
 
         public void Receive(LoginMessage message)
         {
-            UserName = message.Value.email;
+            UserName = message.Value.Email;
         }
     }
 }

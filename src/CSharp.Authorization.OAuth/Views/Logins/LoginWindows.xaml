@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSharp.Authorization.OAuth.Views.Logins"        
         xmlns:Views="clr-namespace:CSharp.Authorization.OAuth.ViewModels.Logins"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="LoginWindows" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding WindowClosedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
         <Button Grid.Row="4" Background="Transparent" Width="200" Height="50"  Command="{Binding GoogleStartCommand}" BorderThickness="0">
             <Image  Stretch="Fill"  Source="pack://application:,,,/Resources/btn_google_sign-in.png" />

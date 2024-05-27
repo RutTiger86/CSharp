@@ -1,5 +1,4 @@
-﻿using CSharp.Authorization.OAuth.Models.Logins;
-using CSharp.Authorization.OAuth.ViewModels.Logins;
+﻿using CSharp.Authorization.OAuth.ViewModels.Logins;
 using System.Windows;
 
 namespace CSharp.Authorization.OAuth.Views.Logins
@@ -9,10 +8,10 @@ namespace CSharp.Authorization.OAuth.Views.Logins
     /// </summary>
     public partial class LoginWindows : Window
     {
-        public LoginWindows(ILoginService loginService)
+        public LoginWindows(LoginWindowModel windowModel)
         {
             InitializeComponent();
-            this.DataContext = new LoginWindowModel(loginService);
+            this.DataContext = windowModel;
         }
     }
 }

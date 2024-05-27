@@ -12,11 +12,11 @@ namespace CSharp.Authorization.OAuth.Helpers
         /// </summary>
         /// <param name="length">Input length (nb. output will be longer)</param>
         /// <returns></returns>
-        public static string randomDataBase64url(uint length)
+        public static string RandomDataBase64url(uint length)
         {
             var data = new byte[length];
             RandomNumberGenerator.Create().GetBytes(data);
-            return base64urlencodeNoPadding(data);
+            return Base64UrlEncodeNoPadding(data);
         }
 
         /// <summary>
@@ -24,10 +24,10 @@ namespace CSharp.Authorization.OAuth.Helpers
         /// </summary>
         /// <param name="inputStirng"></param>
         /// <returns></returns>
-        public static byte[] sha256(string inputStirng)
+        public static byte[] Sha256(string inputStirng)
         {
             byte[] bytes = Encoding.ASCII.GetBytes(inputStirng);
-            return SHA256.Create().ComputeHash(bytes);
+            return SHA256.HashData(bytes);
         }
 
 
@@ -36,7 +36,7 @@ namespace CSharp.Authorization.OAuth.Helpers
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns></returns>
-        public static string base64urlencodeNoPadding(byte[] buffer)
+        public static string Base64UrlEncodeNoPadding(byte[] buffer)
         {
             string base64 = Convert.ToBase64String(buffer);
 
@@ -53,21 +53,21 @@ namespace CSharp.Authorization.OAuth.Helpers
         public static string GetHash(string input)
         {
             // Convert the input string to a byte array and compute the hash.
-            byte[] data = sha256(input); ;
+            byte[] data = Sha256(input); ;
 
             // Create a new Stringbuilder to collect the bytes
             // and create a string.
-            var sBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
             // Loop through each byte of the hashed data
             // and format each one as a hexadecimal string.
             for (int i = 0; i < data.Length; i++)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                stringBuilder.Append(data[i].ToString("x2"));
             }
 
             // Return the hexadecimal string.
-            return sBuilder.ToString();
+            return stringBuilder.ToString();
         }
 
         public static string GetPbkdf2(string input, string salt, int it_count, int length)
@@ -77,17 +77,17 @@ namespace CSharp.Authorization.OAuth.Helpers
 
             // Create a new Stringbuilder to collect the bytes
             // and create a string.
-            var sBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
             // Loop through each byte of the hashed data
             // and format each one as a hexadecimal string.
             for (int i = 0; i < data.Length; i++)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                stringBuilder.Append(data[i].ToString("x2"));
             }
 
             // Return the hexadecimal string.
-            return sBuilder.ToString();
+            return stringBuilder.ToString();
         }
 
 

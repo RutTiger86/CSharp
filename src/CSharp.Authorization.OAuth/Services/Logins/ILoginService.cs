@@ -31,9 +31,9 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             try
             {
                 // Generates state and PKCE values.
-                string state = CryptographyHelper.randomDataBase64url(32);
-                string code_verifier = CryptographyHelper.randomDataBase64url(32);
-                string code_challenge = CryptographyHelper.base64urlencodeNoPadding(CryptographyHelper.sha256(code_verifier));
+                string state = CryptographyHelper.RandomDataBase64url(32);
+                string code_verifier = CryptographyHelper.RandomDataBase64url(32);
+                string code_challenge = CryptographyHelper.Base64UrlEncodeNoPadding(CryptographyHelper.Sha256(code_verifier));
                 const string code_challenge_method = "S256";
 
                 // Creates a redirect URI using an available port on the loopback address.
@@ -80,7 +80,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             }
             catch (Exception ex)
             {
-                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.EC_EX, ErrorMessage = ex.ToString() };
+                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION, ErrorMessage = ex.ToString() };
             }
         }
 
@@ -114,11 +114,11 @@ namespace CSharp.Authorization.OAuth.Models.Logins
 
                 if (CodeExchange.Result)
                 {
-                    BaseResponse<GoogleUserInfo> userInfo = await GetUserInfo(CodeExchange.Data.accessToken, CodeExchange.Data.tokenType);
+                    BaseResponse<GoogleUserInfo> userInfo = await GetUserInfo(CodeExchange.Data.AccessToken, CodeExchange.Data.TokenType);
 
                     if (userInfo.Result)
                     {
-                        userInfo.Data.refreshToken = CodeExchange.Data.refreshToken;
+                        userInfo.Data.RefreshToken = CodeExchange.Data.RefreshToken;
                     }
 
                     return userInfo;
@@ -136,7 +136,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             }
             catch (Exception ex)
             {
-                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.EC_EX, ErrorMessage = ex.ToString() };
+                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION, ErrorMessage = ex.ToString() };
             }
         }
 
@@ -159,7 +159,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.EC_HTTP, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
+                    return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.HTTP_EXCEPTION, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
                 }
                 else
                 {
@@ -175,7 +175,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             }
             catch (Exception ex)
             {
-                return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.EC_EX, ErrorMessage = ex.ToString() };
+                return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION, ErrorMessage = ex.ToString() };
             }
         }
 
@@ -196,7 +196,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.EC_HTTP, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
+                    return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.HTTP_EXCEPTION, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
                 }
                 else
                 {
@@ -211,7 +211,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             }
             catch (Exception ex)
             {
-                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.EC_EX, ErrorMessage = ex.ToString() };
+                return new BaseResponse<GoogleUserInfo>() { Result = false, ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION, ErrorMessage = ex.ToString() };
             }
         }
 
@@ -234,7 +234,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.EC_HTTP, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
+                    return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.HTTP_EXCEPTION, ErrorMessage = $"[{response.StatusCode}] {responseString}" };
                 }
                 else
                 {
@@ -250,7 +250,7 @@ namespace CSharp.Authorization.OAuth.Models.Logins
             }
             catch (Exception ex)
             {
-                return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.EC_EX, ErrorMessage = ex.ToString() };
+                return new BaseResponse<GoogleOAuth>() { Result = false, ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION, ErrorMessage = ex.ToString() };
             }
         }
 

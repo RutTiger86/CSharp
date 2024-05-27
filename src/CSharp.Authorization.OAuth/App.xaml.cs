@@ -3,6 +3,7 @@ using CSharp.Authorization.OAuth.Messages;
 using CSharp.Authorization.OAuth.Messages.Logins;
 using CSharp.Authorization.OAuth.Models.Google;
 using CSharp.Authorization.OAuth.Models.Logins;
+using CSharp.Authorization.OAuth.ViewModels.Logins;
 using CSharp.Authorization.OAuth.Views.Logins;
 using log4net;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +35,8 @@ namespace CSharp.Authorization.OAuth
         {
             services.AddSingleton<MainWindow>();
             services.AddSingleton<LoginWindows>();
-            services.AddTransient<ILoginService, LoginService>();
+            services.AddScoped<LoginWindowModel>();
+            services.AddScoped<ILoginService, LoginService>();
         }
 
         protected override async void OnStartup(StartupEventArgs e)

@@ -2,8 +2,8 @@
 {
     public enum ErrorCode
     {
-        EC_EX, // 미확인 익셉션
-        EC_HTTP, //HTTP Error
+        SYSTEM_EXCEPTION, 
+        HTTP_EXCEPTION, 
         OAUTH_GOOGLE,
         OAUTH_GOOGLE_INVALID_STATE,
     }

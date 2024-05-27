@@ -1,22 +1,34 @@
-﻿namespace CSharp.Authorization.OAuth.Models.Google
+﻿using System.Text.Json.Serialization;
+
+namespace CSharp.Authorization.OAuth.Models.Google
 {
     public class GoogleUserInfo
     {
-        public string? sub { get; set; }
-        public string? name { get; set; }
+        [JsonPropertyName("sub")]
+        public string? Sub { get; set; }
 
-        public string? givenName { get; set; }
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
-        public string? familyName { get; set; }
+        [JsonPropertyName("givenName")]
+        public string? GivenName { get; set; }
 
-        public string? picture { get; set; }
+        [JsonPropertyName("familyNamev")]
+        public string? FamilyName { get; set; }
 
-        public string? email { get; set; }
+        [JsonPropertyName("picture")]
+        public string? Picture { get; set; }
 
-        public bool emailVerified { get; set; }
+        [JsonPropertyName("email")]
+        public string? Email { get; set; }
 
-        public string? locale { get; set; }
+        [JsonPropertyName("emailVerified")]
+        public bool EmailVerified { get; set; }
 
-        public string? refreshToken { get; set; }
+        [JsonPropertyName("locale")]
+        public string? Locale { get; set; }
+
+        [JsonPropertyName("refreshToken")] 
+        public string? RefreshToken { get; set; }
     }
 }
