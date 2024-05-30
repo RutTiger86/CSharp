@@ -4,7 +4,7 @@ C# 예제 프로젝트
 ## Project
 ### CSharp.Commons
 - 기타 프로젝트가 참조하여 사용하는 Library
-### CSharp.Authorization.Session (작업중)
+### CSharp.Authorization.Session
 [CSharp.Authorization.Session](docs/CSHARP.AUTHORIZATION.OAUTH.md)
 ### CSharp.Authorization.OAuth
 [CSharp.Authorization.OAuth](docs/CSHARP.AUTHORIZATION.SESSION.md)
@@ -23,5 +23,8 @@ C# 예제 프로젝트
 ### CSharp.Console.Protobuf (예정)
 
 
+
+## Docs
 [Build 보기](docs/BUILD.md)
+
 [Coding Conventions 보기](docs/CONVENTIONS.md)
