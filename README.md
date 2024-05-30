@@ -5,11 +5,11 @@ C# 예제 프로젝트
 ### CSharp.Commons
 - 기타 프로젝트가 참조하여 사용하는 Library
 ### CSharp.Authorization.Session
-[CSharp.Authorization.Session](./docs/CSHARP.AUTHORIZATION.OAUTH.md)
+[CSharp.Authorization.Session](docs/CSHARP.AUTHORIZATION.SESSION.md)
 ### CSharp.Authorization.OAuth
-[CSharp.Authorization.OAuth](./docs/CSHARP.AUTHORIZATION.SESSION.md)
+[CSharp.Authorization.OAuth](docs/CSHARP.AUTHORIZATION.OAUTH.md)
 ### CSharp.RestAPI.Logging
-[CSharp.RestAPI.Logging](./docs/CSHARP.RESTAPI.LOGGING.md)
+[CSharp.RestAPI.Logging](docs/CSHARP.RESTAPI.LOGGING.md)
 ### CSharp.Authorization.Token (예정)
 ### CSharp.RestApi.Repository (예정)
 ### CSharp.Efcore.Model (예정)
