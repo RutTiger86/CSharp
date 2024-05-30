@@ -24,4 +24,5 @@ WPF 프로젝트로 Google OAuth 인증방식을 구현합니다.
 
 ## 코딩규칙
 해당 Repository 공통 코딩 규칙을 준수합니다.
+
 [CONVENTIONS](CONVENTIONS.md)
