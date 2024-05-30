@@ -1,6 +1,6 @@
 [README 보기](../README.md)
 
-#CSharp.Authorization.OAuth - WPF Client OAuth 프로젝트
+# CSharp.Authorization.OAuth - WPF Client OAuth 프로젝트
 WPF 프로젝트로 Google OAuth 인증방식을 구현합니다. 
 기본적으로 MVVM(Model-View-Viewmodel) 패턴과 DI(Dependency Injection) 패턴을 적용합니다. 
 민감한 정보(clientid, clientsecret)는 App.config 에 기록하고 사용하게 되어 있습니다.
