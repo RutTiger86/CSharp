@@ -10,10 +10,11 @@ C# 예제 프로젝트
 [CSharp.Authorization.OAuth](docs/CSHARP.AUTHORIZATION.OAUTH.md)
 ### CSharp.RestAPI.Logging
 [CSharp.RestAPI.Logging](docs/CSHARP.RESTAPI.LOGGING.md)
-### CSharp.Authorization.Token (예정)
+### CSharp.Authorization.Token 
+[CSharp.Authorization.Token](docs/CSHARP.AUTHORIZATION.TOKEN.md)
 ### CSharp.RestApi.Repository (예정)
-### CSharp.Efcore.Model (예정)
-### CSharp.Efcore.Migration (예정)
+### CSharp.Efcore.Migrations 
+[CSharp.Efcore.Migrations](docs/CSHARP.EFCORE.MIGRATIONS.md)
 ### CSharp.WPF.MVVM (예정)
 ### CSharp.WPF.MVC (예정)
 ### CSharp.WPF.Mutex (예정)
