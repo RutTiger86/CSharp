@@ -1,0 +1,6 @@
+@CSharp.RestAPI.Repository_HostAddress = http://localhost:5134
+
+GET {{CSharp.RestAPI.Repository_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
