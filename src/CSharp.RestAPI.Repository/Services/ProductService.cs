@@ -1,5 +1,6 @@
 ﻿using CSharp.RestAPI.Repository.Enums;
 using CSharp.RestAPI.Repository.Models;
+using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
 using CSharp.RestAPI.Repository.Repositories;
 
@@ -8,6 +9,11 @@ namespace CSharp.RestAPI.Repository.Services
     public interface IProductService
     {
         BaseResponse<ProductOverview> GetProductOverview();
+        BaseResponse<long> AddProduct(AddProductRequest addProduct);
+
+        BaseResponse<long> AddProductStock(AddProductStockRequest addProductStock);
+
+        bool ProductExists(long productId);
     }
 
     public class ProductService : BaseService, IProductService
@@ -50,5 +56,69 @@ namespace CSharp.RestAPI.Repository.Services
             }
         }
 
+
+        public BaseResponse<long> AddProduct(AddProductRequest addProduct)
+        {
+            try
+            {
+                return new BaseResponse<long>()
+                {
+                    Result = true,
+                    ErrorCode = (int)ErrorCode.Success,
+                    ErrorMessage = ErrorCode.Success.ToString(),
+                    Data = productRepository.InsertProduct(addProduct)
+                };
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex.ToString());
+                return new BaseResponse<long>()
+                {
+                    Result = false,
+                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorMessage = ex.ToString(),
+                    Data = -1
+                };
+            }
+        }
+
+
+        public BaseResponse<long> AddProductStock(AddProductStockRequest addProductStock)
+        {
+            try
+            {
+                return new BaseResponse<long>()
+                {
+                    Result = true,
+                    ErrorCode = (int)ErrorCode.Success,
+                    ErrorMessage = ErrorCode.Success.ToString(),
+                    Data = productRepository.InsertProductStock(addProductStock)
+                };
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex.ToString());
+                return new BaseResponse<long>()
+                {
+                    Result = false,
+                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorMessage = ex.ToString(),
+                    Data = -1
+                };
+            }
+        }
+
+        public bool ProductExists(long productId)
+        {
+            try
+            {
+                return productRepository.ProductExists(productId);
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex.ToString());
+                return false;
+            }
+        }
     }
 }

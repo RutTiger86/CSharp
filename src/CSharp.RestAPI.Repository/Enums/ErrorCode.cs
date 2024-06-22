@@ -3,7 +3,12 @@
     public enum ErrorCode
     {
         Success,
-        SystemException
+        SystemException,
 
+        CategoryNotExists= 1000,
+
+
+
+        ProductNotExists = 2000,
     }
 }

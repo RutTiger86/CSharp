@@ -1,7 +1,8 @@
 [README 보기](../README.md)
 
-# CSharp.RestAPI.Logging - .Net8 RestAPI 프로젝트
-RestAPI 프로젝트로 Middleware를 통한 Logging 방식을 구현합니다. 
+# CSharp.RestAPI.Repository - .Net8 RestAPI 프로젝트
+RestAPI 프로젝트로 Repository 패턴 방식을 구현합니다. 
+
 
 ## 사용된 NugetPackage
 - 

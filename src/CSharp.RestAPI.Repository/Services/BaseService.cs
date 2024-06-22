@@ -3,5 +3,6 @@
     public class BaseService
     {
         protected ILogger<BaseService> log;
+
     }
 }

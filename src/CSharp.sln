@@ -20,7 +20,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Authorization.Token"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Efcore.Migrations", "CSharp.Efcore.Migrations\CSharp.Efcore.Migrations.csproj", "{91919B06-8370-4F59-99FC-6B12662005F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.RestAPI.Repository", "CSharp.RestAPI.Repository\CSharp.RestAPI.Repository.csproj", "{E35D13A2-C46C-4CE3-B530-2D07C34895F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.RestAPI.Repository", "CSharp.RestAPI.Repository\CSharp.RestAPI.Repository.csproj", "{E35D13A2-C46C-4CE3-B530-2D07C34895F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{16BB5359-B1F9-47E2-BF02-4F74EA2D3BCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.RestAPI.RepositoryTests", "Tests\CSharp.RestAPI.RepositoryTests\CSharp.RestAPI.RepositoryTests.csproj", "{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,9 +60,16 @@ Global
 		{E35D13A2-C46C-4CE3-B530-2D07C34895F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E35D13A2-C46C-4CE3-B530-2D07C34895F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E35D13A2-C46C-4CE3-B530-2D07C34895F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D53FEEA-B295-4CDE-9E57-C0A39E7E69B8} = {16BB5359-B1F9-47E2-BF02-4F74EA2D3BCD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9768D6F2-7A65-4860-A732-03AC0FDB65D3}
