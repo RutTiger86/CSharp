@@ -5,6 +5,7 @@ WPF 프로젝트로 Google OAuth 인증방식을 구현합니다.
 기본적으로 MVVM(Model-View-Viewmodel) 패턴과 DI(Dependency Injection) 패턴을 적용합니다. 
 민감한 정보(clientid, clientsecret)는 App.config 에 기록하고 사용하게 되어 있습니다.
 해당 정보는 Repository에 기록하지 않으며 해당 소스를 사용기 위해서는 별도로 등록 사용하십시오.
+
 **민감정보 저장시 App.config 가 아닌 별도의 공간에 저장 사용하길 권장합니다.**
 
 ## 사용된 NugetPackage

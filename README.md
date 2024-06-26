@@ -3,7 +3,8 @@ C# 예제 프로젝트
 
 ## Project
 ### CSharp.Commons
-- 기타 프로젝트가 참조하여 사용하는 Library
+- 기타 프로젝트가 참조하여 사용하는 Library 프로젝트.
+- Helper or Converter 포함
 
 
 ### CSharp.Authorization.Session
