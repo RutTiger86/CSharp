@@ -3,6 +3,9 @@ using CommunityToolkit.Mvvm.Messaging;
 using CSharp.WPF.MVVM.Messages;
 using CSharp.WPF.MVVM.Messages.Login;
 using CSharp.WPF.MVVM.Models.Users;
+using CSharp.WPF.MVVM.ViewModels.ViewA;
+using CSharp.WPF.MVVM.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +35,12 @@ namespace CSharp.WPF.MVVM
             private set;
         }
 
+        public RelayCommand<Type> ChangeViewCommand
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region  Binding Value
@@ -43,15 +52,35 @@ namespace CSharp.WPF.MVVM
             get => loginUserInfo;
             set => SetProperty(ref loginUserInfo, value);
         }
+
+        private object currentViewModel;
+        public object CurrentViewModel
+        {
+            get => currentViewModel;
+            set => SetProperty(ref currentViewModel, value);
+        }
+
+        private bool viewInit;
+        public bool ViewInit
+        {
+            get => viewInit;
+            set => SetProperty(ref viewInit, value);
+        }
+
         #endregion
 
-        public MainWindowModel()
+        private readonly IServiceProvider serviceProvider;
+
+
+        public MainWindowModel(IServiceProvider serviceProvider)
         {
             try
             {
                 LogInfo("★★★★★ MainWindowModel Start ★★★★★");
+                this.serviceProvider = serviceProvider;
                 SettingMessage();
                 SettingCommand();
+                LoginInit();
                 LogInfo("loginWindows Show");
             }
             catch (Exception ex)
@@ -59,6 +88,12 @@ namespace CSharp.WPF.MVVM
                 LogException(ex.Message);
             }
         }
+
+        public void LoginInit()
+        {
+            ViewInit = true;
+        }
+
         private void SettingMessage()
         {
             try
@@ -75,8 +110,9 @@ namespace CSharp.WPF.MVVM
         {
             try
             {
-                MainClosedCommand = new RelayCommand(MainClosed);
-                LogoutCommand = new RelayCommand(Logout);
+                MainClosedCommand = new RelayCommand(OnMainClosed);
+                LogoutCommand = new RelayCommand(OnLogout);
+                ChangeViewCommand = new RelayCommand<Type>(OnChangeView);
                 LogInfo("SettingCommand Done");
             }
             catch (Exception ex)
@@ -84,8 +120,12 @@ namespace CSharp.WPF.MVVM
                 LogException(ex.Message);
             }
         }
+        private void OnChangeView(Type? viewType)
+        {
+            CurrentViewModel = serviceProvider.GetRequiredService(viewType);
+        }
 
-        private void Logout()
+        private void OnLogout()
         {
             try
             {
@@ -99,7 +139,7 @@ namespace CSharp.WPF.MVVM
             }
         }
 
-        private void MainClosed()
+        private void OnMainClosed()
         {
             try
             {

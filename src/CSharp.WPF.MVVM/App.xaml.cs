@@ -1,17 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using CSharp.WPF.MVVM.Messages;
+using CSharp.WPF.MVVM.Messages.Login;
+using CSharp.WPF.MVVM.Models.Users;
 using CSharp.WPF.MVVM.Services.Login;
 using CSharp.WPF.MVVM.ViewModels.Login;
+using CSharp.WPF.MVVM.ViewModels.ViewA;
+using CSharp.WPF.MVVM.ViewModels.ViewB;
 using CSharp.WPF.MVVM.Views.Login;
+using CSharp.WPF.MVVM.Views.ViewA;
+using CSharp.WPF.MVVM.Views.ViewB;
 using log4net;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Configuration;
-using System.Data;
 using System.Reflection;
 using System.Windows;
-using CSharp.WPF.MVVM.Messages.Login;
-using CSharp.WPF.MVVM.Messages;
-using CSharp.WPF.MVVM.Models.Users;
 
 namespace CSharp.WPF.MVVM
 {
@@ -35,22 +37,38 @@ namespace CSharp.WPF.MVVM
 
         private static void ConfigureServices(IServiceCollection services)
         {
+            // ViewModels
+            services.AddSingleton<MainWindowModel>();
+            services.AddSingleton<LoginWindowModel>();
+            services.AddSingleton<ViewAViewModel>();
+            services.AddSingleton<ViewBViewModel>();
+
+            // Views
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<LoginWindows>();
-            services.AddScoped<LoginWindowModel>();
+            services.AddSingleton<LoginWindow>();
+            services.AddSingleton<ViewA>();
+            services.AddSingleton<ViewB>();
+
+            // Services
             services.AddScoped<ILoginService, LoginService>();
+
         }
 
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            await host.StartAsync();
-
             SettingMessage();
 
             LogOutProcess();
         }
+
+        protected override async void OnExit(ExitEventArgs e)
+        {
+            await host.StopAsync();
+            base.OnExit(e);
+        }
+
 
         private void SettingMessage()
         {
@@ -90,14 +108,14 @@ namespace CSharp.WPF.MVVM
 
         private void LogInProcess(UserInfo userInfo)
         {
-            host.Services.GetRequiredService<LoginWindows>().Hide();
+            host.Services.GetRequiredService<LoginWindow>().Hide();
             host.Services.GetRequiredService<MainWindow>().Visibility = Visibility.Visible;
         }
 
         private void LogOutProcess()
         {
             host.Services.GetRequiredService<MainWindow>().Visibility = Visibility.Hidden;
-            host.Services.GetRequiredService<LoginWindows>().Show();
+            host.Services.GetRequiredService<LoginWindow>().Show();
         }
 
         private void ProgramShutdownProcess()
@@ -105,7 +123,7 @@ namespace CSharp.WPF.MVVM
             try
             {
                 log.Info("ProgramShutdownProcess");
-                host.Services.GetRequiredService<LoginWindows>().Close();
+                host.Services.GetRequiredService<LoginWindow>().Close();
                 host.Services.GetRequiredService<MainWindow>().Close();
                 Application.Current.Shutdown();
             }

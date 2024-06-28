@@ -1,4 +1,4 @@
-﻿using CSharp.WPF.MVVM.ViewModels.Login;
+﻿using CSharp.WPF.MVVM.ViewModels.ViewA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CSharp.WPF.MVVM.Views.Login
+namespace CSharp.WPF.MVVM.Views.ViewA
 {
     /// <summary>
-    /// LoginWindows.xaml에 대한 상호 작용 논리
+    /// ViewA.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class LoginWindows : Window
+    public partial class ViewA : BaseView
     {
-        public LoginWindows(LoginWindowModel windowModel)
+        public ViewA(ViewAViewModel model)
         {
             InitializeComponent();
-            this.DataContext = windowModel;
+            this.DataContext = model;
         }
     }
 }

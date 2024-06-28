@@ -3,23 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CSharp.WPF.MVVM"        
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:CSharp.WPF.MVVM"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:ib="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:viewsA="clr-namespace:CSharp.WPF.MVVM.Views.ViewA"
+        xmlns:viewsB="clr-namespace:CSharp.WPF.MVVM.Views.ViewB"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" WindowState="Maximized">
 
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Closed">
-            <i:InvokeCommandAction Command="{Binding MainClosedCommand}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
-    
+    <ib:Interaction.Triggers>
+        <ib:EventTrigger EventName="Closed">
+            <ib:InvokeCommandAction Command="{Binding MainClosedCommand}"/>
+        </ib:EventTrigger>
+    </ib:Interaction.Triggers>
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label Content="{Binding LoginUserInfo.name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
-        <Button Grid.Row="1" Width="150" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" Content="LogOut" FontSize="25" FontWeight="Bold" Command="{Binding LogoutCommand}"/>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="View A" IsChecked="{Binding ViewInit, Mode=TwoWay}" GroupName="Views">
+                    <ib:Interaction.Triggers>
+                        <ib:EventTrigger EventName="Checked">
+                            <ib:InvokeCommandAction Command="{Binding ChangeViewCommand}" CommandParameter="{x:Type viewsA:ViewA}"/>
+                        </ib:EventTrigger>
+                    </ib:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Content="View B" GroupName="Views">
+                    <ib:Interaction.Triggers>
+                        <ib:EventTrigger EventName="Checked">
+                            <ib:InvokeCommandAction Command="{Binding ChangeViewCommand}" CommandParameter="{x:Type viewsB:ViewB}"/>
+                        </ib:EventTrigger>
+                    </ib:Interaction.Triggers>
+                </RadioButton>
+            </StackPanel>
+            <Button Content="Logout" Command="{Binding LogoutCommand}" Width="100" Margin="10" HorizontalAlignment="Center"/>
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </StackPanel>
     </Grid>
 </Window>

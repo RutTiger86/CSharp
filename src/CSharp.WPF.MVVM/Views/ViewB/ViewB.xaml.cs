@@ -1,4 +1,9 @@
-﻿using System.Text;
+﻿using CSharp.WPF.MVVM.ViewModels.ViewB;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,18 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CSharp.WPF.MVVM
+namespace CSharp.WPF.MVVM.Views.ViewB
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// ViewB.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ViewB : BaseView
     {
-        public MainWindow(MainWindowModel viewModel)
+        public ViewB(ViewBViewModel model)
         {
             InitializeComponent();
-
-            this.DataContext = viewModel;
+            this.DataContext = model;
         }
     }
 }
