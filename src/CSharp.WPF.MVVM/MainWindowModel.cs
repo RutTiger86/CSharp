@@ -3,15 +3,8 @@ using CommunityToolkit.Mvvm.Messaging;
 using CSharp.WPF.MVVM.Messages;
 using CSharp.WPF.MVVM.Messages.Login;
 using CSharp.WPF.MVVM.Models.Users;
-using CSharp.WPF.MVVM.ViewModels.ViewA;
-using CSharp.WPF.MVVM.Views;
+using CSharp.WPF.MVVM.Views.MainViews;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp.WPF.MVVM
 {
@@ -50,17 +43,20 @@ namespace CSharp.WPF.MVVM
         public UserInfo? LoginUserInfo
         {
             get => loginUserInfo;
-            set => SetProperty(ref loginUserInfo, value);
+            set
+            {
+                SetProperty(ref loginUserInfo, value);
+            }
         }
 
-        private object currentViewModel;
-        public object CurrentViewModel
+        private object currentView;
+        public object CurrentView
         {
-            get => currentViewModel;
-            set => SetProperty(ref currentViewModel, value);
+            get => currentView;
+            set => SetProperty(ref currentView, value);
         }
 
-        private bool viewInit;
+        private bool viewInit = false;
         public bool ViewInit
         {
             get => viewInit;
@@ -70,7 +66,6 @@ namespace CSharp.WPF.MVVM
         #endregion
 
         private readonly IServiceProvider serviceProvider;
-
 
         public MainWindowModel(IServiceProvider serviceProvider)
         {
@@ -92,6 +87,7 @@ namespace CSharp.WPF.MVVM
         public void LoginInit()
         {
             ViewInit = true;
+            CurrentView = serviceProvider.GetRequiredService(typeof(ViewA));
         }
 
         private void SettingMessage()
@@ -122,7 +118,7 @@ namespace CSharp.WPF.MVVM
         }
         private void OnChangeView(Type? viewType)
         {
-            CurrentViewModel = serviceProvider.GetRequiredService(viewType);
+            CurrentView = serviceProvider.GetRequiredService(viewType);
         }
 
         private void OnLogout()
@@ -130,7 +126,6 @@ namespace CSharp.WPF.MVVM
             try
             {
                 LoginUserInfo = null;
-
                 WeakReferenceMessenger.Default.Send(new LogoutMessage(true));
             }
             catch (Exception ex)
@@ -153,8 +148,8 @@ namespace CSharp.WPF.MVVM
 
         public void Receive(LoginMessage message)
         {
-
             LoginUserInfo = message.Value;
+            LoginInit();
         }
     }
 }

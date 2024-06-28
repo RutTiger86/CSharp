@@ -7,8 +7,8 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:ib="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:viewsA="clr-namespace:CSharp.WPF.MVVM.Views.ViewA"
-        xmlns:viewsB="clr-namespace:CSharp.WPF.MVVM.Views.ViewB"
+        xmlns:viewsA="clr-namespace:CSharp.WPF.MVVM.Views.MainViews"
+        xmlns:viewsB="clr-namespace:CSharp.WPF.MVVM.Views.MainViews"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" WindowState="Maximized">
 
@@ -19,12 +19,22 @@
     </ib:Interaction.Triggers>
 
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Center" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <RadioButton Content="View A" IsChecked="{Binding ViewInit, Mode=TwoWay}" GroupName="Views">
                     <ib:Interaction.Triggers>
                         <ib:EventTrigger EventName="Checked">
-                            <ib:InvokeCommandAction Command="{Binding ChangeViewCommand}" CommandParameter="{x:Type viewsA:ViewA}"/>
+                            <ib:InvokeCommandAction Command="{Binding ChangeViewCommand}"  CommandParameter="{x:Type viewsA:ViewA}"/>
                         </ib:EventTrigger>
                     </ib:Interaction.Triggers>
                 </RadioButton>
@@ -36,8 +46,10 @@
                     </ib:Interaction.Triggers>
                 </RadioButton>
             </StackPanel>
-            <Button Content="Logout" Command="{Binding LogoutCommand}" Width="100" Margin="10" HorizontalAlignment="Center"/>
-            <ContentControl Content="{Binding CurrentViewModel}" />
-        </StackPanel>
+
+            <Button Grid.Column="1" Content="Logout" Command="{Binding LogoutCommand}" Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Grid>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
     </Grid>
 </Window>

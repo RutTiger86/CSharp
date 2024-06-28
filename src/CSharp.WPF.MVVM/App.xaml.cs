@@ -4,11 +4,10 @@ using CSharp.WPF.MVVM.Messages.Login;
 using CSharp.WPF.MVVM.Models.Users;
 using CSharp.WPF.MVVM.Services.Login;
 using CSharp.WPF.MVVM.ViewModels.Login;
-using CSharp.WPF.MVVM.ViewModels.ViewA;
-using CSharp.WPF.MVVM.ViewModels.ViewB;
+using CSharp.WPF.MVVM.ViewModels.MainViews;
+using CSharp.WPF.MVVM.ViewModels.MainViews;
 using CSharp.WPF.MVVM.Views.Login;
-using CSharp.WPF.MVVM.Views.ViewA;
-using CSharp.WPF.MVVM.Views.ViewB;
+using CSharp.WPF.MVVM.Views.MainViews;
 using log4net;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -54,12 +53,10 @@ namespace CSharp.WPF.MVVM
 
         }
 
-        protected override async void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
             SettingMessage();
-
             LogOutProcess();
         }
 
