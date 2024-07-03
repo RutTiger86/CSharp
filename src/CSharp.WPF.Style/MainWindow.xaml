@@ -1,0 +1,98 @@
+﻿<Window x:Class="CSharp.WPF.Style.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharp.WPF.Style"
+        xmlns:views="clr-namespace:CSharp.WPF.Style.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="50"/>
+            <RowDefinition Height="*" MinHeight="50"/>
+            <RowDefinition Height="2*" MinHeight="80"/>
+            <RowDefinition Height="2*" MinHeight="80"/>
+            <RowDefinition Height="3*" MinHeight="80"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <RadioButton Template="{StaticResource LeftMenuButton}" Style="{StaticResource MediumFont}" Content="ViewA"  Command="{Binding MenuClickCommand}" CommandParameter="{x:Type views:ViewA}" IsChecked="True"/>
+                <RadioButton Template="{StaticResource CenterMenuButton}" Style="{StaticResource MediumFont}" Content="ViewB"  Command="{Binding MenuClickCommand}" CommandParameter="{x:Type views:ViewB}"/>
+                <RadioButton Template="{StaticResource RightMenuButton}" Style="{StaticResource MediumFont}" Content="ViewC" Command="{Binding MenuClickCommand}" CommandParameter="{x:Type views:ViewC}"/>
+            </StackPanel>
+
+            <Label Grid.Column="1" Content="UserName" Style="{StaticResource ContentLabel}"/>
+
+            <Button Grid.Column="2" Template="{StaticResource CommonButton}" Command="{Binding MainClosedCommand}" Margin="5" Content="Close"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=" *"/>
+                <ColumnDefinition Width=" *"/>
+                <ColumnDefinition Width=" *"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="txb_SearchText"  Grid.Column="0" Template="{StaticResource SearchTextBox}" Margin="3" HorizontalAlignment="Stretch">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding SearchCommand}"            
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=TextBox}, Path=Text}"
+                                Key="Enter"/>
+                </TextBox.InputBindings>
+            </TextBox>
+
+            <Button Grid.Column="1" Content="Search" Template="{StaticResource SearchButtn}" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=txb_SearchText}"/>
+
+            <TextBox Grid.Column="2" Style="{StaticResource MediumTextBox}" Width="200" Text="MediumTextBox"/>
+            <PasswordBox Grid.Column="3" Style="{StaticResource MediumPasswordBox}" Width="200" Password="10100"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="TileLable" Style="{StaticResource TitleLabel}"/>
+            <Label Grid.Column="1" Content="ConttentLabel"  Style="{StaticResource ContentLabel}"/>
+            <Label Grid.Column="2" Content="DetailContentLabel"  Style="{StaticResource DetailContentLabel}"/>
+            <Button Grid.Column="3" Content="ConfirmMediumButton"  Style="{StaticResource ConfirmMediumButton}"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="ConfirmMediumButton" Width="300"  Style="{StaticResource ConfirmMediumButton}"/>
+            <Button Grid.Column="1" Content="ConfirmSmallButton" Width="200"  Style="{StaticResource ConfirmSmallButton}"/>
+            <CheckBox Grid.Column="2" Style="{StaticResource MediumCheckBox}" Width="250"  Content="MediumCheckBox"/>
+        </Grid>
+        <DataGrid Grid.Row="4" ColumnHeaderStyle="{StaticResource CustomHeader}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Colum1"/>
+                <DataGridTextColumn Header="Colum2"/>
+                <DataGridTextColumn Header="Colum3"/>
+                <DataGridTextColumn Header="Colum4"/>
+                <DataGridTextColumn Header="Colum5"/>
+                <DataGridTextColumn Header="Colum6"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ContentPresenter Grid.Row="5" Content="{Binding MainView,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+        
+    </Grid>
+</Window>

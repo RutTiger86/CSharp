@@ -5,7 +5,6 @@ using CSharp.WPF.MVVM.Models.Users;
 using CSharp.WPF.MVVM.Services.Login;
 using CSharp.WPF.MVVM.ViewModels.Login;
 using CSharp.WPF.MVVM.ViewModels.MainViews;
-using CSharp.WPF.MVVM.ViewModels.MainViews;
 using CSharp.WPF.MVVM.Views.Login;
 using CSharp.WPF.MVVM.Views.MainViews;
 using log4net;
