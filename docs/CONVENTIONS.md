@@ -1,23 +1,28 @@
-[README º¸±â](../README.md)
+[README ë³´ê¸°](../README.md)
 
-# Repository °øÅë ÄÚµù ±ÔÄ¢ 
-ÇØ´ç Repository´Â º°µµ ¸í½Ã°¡ ¾ø´ÂÇÑ º»¹®ÀÇ ÄÚµù ±ÔÄ¢À» »ç¿ëÇÕ´Ï´Ù.
+# Repository ê³µí†µ ì½”ë”© ê·œì¹™
 
-## Å¬·¡½º ¹× ³×ÀÓ½ºÆäÀÌ½º
-- Å¬·¡½º¸íÀº 'UpperCamelCase'¸¦ »ç¿ëÇÏ¿© ÀÛ¼ºÇÕ´Ï´Ù. 
-- ³×ÀÓ½ºÆäÀÌ½º´Â ÇÁ·ÎÁ§Æ® ±¸Á¶¸¦ ¹Ý¿µÇÏ¿© ÀÛ¼ºÇÕ´Ï´Ù. 
+í•´ë‹¹ RepositoryëŠ” ë³„ë„ ëª…ì‹œê°€ ì—†ëŠ”í•œ ë³¸ë¬¸ì˜ ì½”ë”© ê·œì¹™ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.
+
+## í´ëž˜ìŠ¤ ë° ë„¤ìž„ìŠ¤íŽ˜ì´ìŠ¤
+
+- í´ëž˜ìŠ¤ëª…ì€ 'UpperCamelCase'ë¥¼ ì‚¬ìš©í•˜ì—¬ ìž‘ì„±í•©ë‹ˆë‹¤.
+- ë„¤ìž„ìŠ¤íŽ˜ì´ìŠ¤ëŠ” í”„ë¡œì íŠ¸ êµ¬ì¡°ë¥¼ ë°˜ì˜í•˜ì—¬ ìž‘ì„±í•©ë‹ˆë‹¤.
+
 ```csharp
 namespace CSharp.Authorization.Session.Services
 {
     public class AuthorizationService : IAuthorizationService
     {
-        // ÄÚµå ³»¿ë
+        // ì½”ë“œ ë‚´ìš©
     }
 }
 ```
-## º¯¼ö ¹× ÇÊµå 
- - ·ÎÄÃ º¯¼ö¿Í Å¬·¡½º ÇÊµå´Â 'LowerCamelCase'¸¦ »ç¿ëÇÕ´Ï´Ù.  
- - »ó¼ö´Â 'UpperCamelCase'¸¦ »ç¿ëÇÕ´Ï´Ù.
+
+## ë³€ìˆ˜ ë° í•„ë“œ
+
+- ë¡œì»¬ ë³€ìˆ˜ì™€ í´ëž˜ìŠ¤ í•„ë“œëŠ” 'LowerCamelCase'ë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤.
+- ìƒìˆ˜ëŠ” 'UpperCamelCase'ë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤.
 
 ```csharp
 private ILogger<AuthorizationController> logger;
@@ -27,17 +32,21 @@ public AuthorizationService(ILogger<AuthorizationController> logger)
 }
 ```
 
-## ¸Þ¼­µå
- - ¸Þ¼­µå ¸íÀº 'UpperCamelCase'¸¦ »ç¿ëÇÏ¿© ÀÛ¼ºÇÕ´Ï´Ù. 
- - ¸Þ¼­µå ¸íÀ¸·Î ÀÇ¹ÌÆÄ¾ÇÀÌ °¡´ÉÇÏµµ·Ï ÇÏ¸ç ¼³¸í ÁÖ¼®Àº Áö¾çÇÕ´Ï´Ù. 
- 
-## Á¢µÎ¾î Ãß°¡ 
-- interfaceÀÇ °æ¿ì ¾Õ¿¡ i¸¦ µÓ´Ï´Ù. 
-- ´ÜÀÏ »ç¿ë interface´Â ÇØ´ç Class À§¿¡ ¹èÄ¡ ÇÕ´Ï´Ù. 
+## ë©”ì„œë“œ
 
-## ÆÄÀÏ ¸íÄª 
-- Class ÆÄÀÏÀº Class ¸í°ú µ¿ÀÏ½Ã ÇÕ´Ï´Ù. 
-- md ÆÄÀÏÀÇ °æ¿ì ¸ðµÎ ´ë¹®ÀÚ·Î ÇÕ´Ï´Ù.
+- ë©”ì„œë“œ ëª…ì€ 'UpperCamelCase'ë¥¼ ì‚¬ìš©í•˜ì—¬ ìž‘ì„±í•©ë‹ˆë‹¤.
+- ë©”ì„œë“œ ëª…ìœ¼ë¡œ ì˜ë¯¸íŒŒì•…ì´ ê°€ëŠ¥í•˜ë„ë¡ í•˜ë©° ì„¤ëª… ì£¼ì„ì€ ì§€ì–‘í•©ë‹ˆë‹¤.
 
-## ±âÅ¸ 
-- ºÒÇÊ¿äÇÑ 'using'¹®Àº ÇÊÈ÷ Á¦°ÅÇÕ´Ï´Ù. 
+## ì ‘ë‘ì–´ ì¶”ê°€
+
+- interfaceì˜ ê²½ìš° ì•žì— ië¥¼ ë‘¡ë‹ˆë‹¤.
+- ë‹¨ì¼ ì‚¬ìš© interfaceëŠ” í•´ë‹¹ Class ìœ„ì— ë°°ì¹˜ í•©ë‹ˆë‹¤.
+
+## íŒŒì¼ ëª…ì¹­
+
+- Class íŒŒì¼ì€ Class ëª…ê³¼ ë™ì¼ì‹œ í•©ë‹ˆë‹¤.
+- md íŒŒì¼ì˜ ê²½ìš° ëª¨ë‘ ëŒ€ë¬¸ìžë¡œ í•©ë‹ˆë‹¤.
+
+## ê¸°íƒ€
+
+- ë¶ˆí•„ìš”í•œ 'using'ë¬¸ì€ í•„ížˆ ì œê±°í•©ë‹ˆë‹¤.
