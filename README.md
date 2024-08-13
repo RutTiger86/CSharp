@@ -51,6 +51,8 @@ C# 예제 프로젝트
 
 ### CSharp.Console.Protobuf (예정)
 
+### CSharp.Authorization.Identity (예정)
+
 ## Docs
 
 [Build 보기](docs/BUILD.md)
