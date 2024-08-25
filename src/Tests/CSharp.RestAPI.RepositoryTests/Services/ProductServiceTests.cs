@@ -1,22 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CSharp.RestAPI.Repository.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoFixture;
-using CSharp.RestAPI.Repository.Controllers;
+﻿using AutoFixture;
+using CSharp.RestAPI.Repository.Enums;
+using CSharp.RestAPI.Repository.Models;
+using CSharp.RestAPI.Repository.Models.Requests;
+using CSharp.RestAPI.Repository.Models.Responses;
+using CSharp.RestAPI.Repository.Repositories;
 using CSharp.RestAPI.RepositoryTests;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
-using CSharp.RestAPI.Repository.Repositories;
-using CSharp.RestAPI.Repository.Models;
-using CSharp.RestAPI.Repository.Models.Responses;
-using CSharp.RestAPI.Repository.Enums;
-using FluentAssertions;
-using CSharp.RestAPI.Repository.Models.Requests;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CSharp.RestAPI.Repository.Services.Tests
 {
