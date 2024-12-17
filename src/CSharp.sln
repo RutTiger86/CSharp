@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Kafka.Server", "CSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.SocketNetwork", "CSharp.SocketNetwork\CSharp.SocketNetwork.csproj", "{D97E42EB-939B-4727-BA37-1BAA83182D65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.WindowsService", "CSharp.WindowsService\CSharp.WindowsService.csproj", "{CA084CE7-65B3-4BCE-B8B6-AAB7C2DB6F92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{D97E42EB-939B-4727-BA37-1BAA83182D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97E42EB-939B-4727-BA37-1BAA83182D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D97E42EB-939B-4727-BA37-1BAA83182D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA084CE7-65B3-4BCE-B8B6-AAB7C2DB6F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA084CE7-65B3-4BCE-B8B6-AAB7C2DB6F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA084CE7-65B3-4BCE-B8B6-AAB7C2DB6F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA084CE7-65B3-4BCE-B8B6-AAB7C2DB6F92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

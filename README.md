@@ -49,7 +49,8 @@ C# 예제 프로젝트
 
 [CSharp.SocketNetwork](docs/CSHARP.SOCKETNETWORK.md)
 
-### CSharp.WindowService (예정)
+### CSharp.WindowService
+[CSharp.WindowsService](docs/CSHARP.WINDOWSSERVICE.md)
 
 ### CSharp.Console.Protobuf (예정)
 
