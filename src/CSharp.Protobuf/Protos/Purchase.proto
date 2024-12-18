@@ -1,0 +1,33 @@
+﻿syntax = "proto3";
+
+package iap.purchase;
+
+import "Transaction.proto";
+
+option csharp_namespace = "CSharp.Protobuf.Purchase";
+
+// 단일 구매 요청
+message PurchaseRequest {
+  string user_id = 1;     // 사용자 ID
+  string product_id = 2;  // 상품 ID
+  int32 quantity = 3;     // 구매 수량
+}
+
+// 단일 구매 응답
+message PurchaseResponse {
+  iap.common.TransactionInfo transaction = 1; // 트랜잭션 정보
+  string status = 2;               // 상태 코드 (SUCCESS, FAILURE 등)
+  string message = 3;              // 상태 메시지
+}
+
+// 구매 이력 조회 요청
+message PurchaseHistoryRequest {
+  string user_id = 1; // 조회할 사용자 ID
+}
+
+// 구매 이력 조회 응답
+message PurchaseHistoryResponse {
+  repeated iap.common.TransactionInfo transactions = 1; // 사용자의 전체 구매 이력
+}
+
+
