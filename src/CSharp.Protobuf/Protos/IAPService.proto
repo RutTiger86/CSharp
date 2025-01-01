@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+package iap.purchase;
+
+import "Purchase.proto";
+
+option csharp_namespace = "CSharp.Protobuf.Service";
+
+// IAP 서비스 정의
+service IAPService {
+  // 단일 상품 구매
+  rpc MakePurchase (PurchaseRequest) returns (PurchaseResponse);
+
+  // 구매 이력 조회
+  rpc GetPurchaseHistory (PurchaseHistoryRequest) returns (PurchaseHistoryResponse);
+}
+

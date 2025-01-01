@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+package iap.common;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "CSharp.Protobuf.Transaction";
+
+// 트랜잭션 정보
+message TransactionInfo {
+  string transaction_id = 1; // 트랜잭션 고유 ID
+  string user_id = 2;        // 구매한 사용자 ID
+  string product_id = 3;     // 상품 ID
+  int32 quantity = 4;        // 구매한 수량
+  double price = 5;          // 상품 가격
+  string currency = 6;       // 통화 단위 (예: USD, KRW)
+  google.protobuf.Timestamp purchase_date = 7; // 구매 일시
+}
