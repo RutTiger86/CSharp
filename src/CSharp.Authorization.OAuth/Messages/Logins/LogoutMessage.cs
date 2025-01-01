@@ -2,11 +2,7 @@
 
 namespace CSharp.Authorization.OAuth.Messages.Logins
 {
-    public class LogoutMessage : ValueChangedMessage<bool>
+    public class LogoutMessage(bool LogoutResult) : ValueChangedMessage<bool>(LogoutResult)
     {
-        public LogoutMessage(bool LogoutResult) : base(LogoutResult)
-        {
-
-        }
     }
 }

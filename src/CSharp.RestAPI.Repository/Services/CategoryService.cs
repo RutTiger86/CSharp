@@ -30,8 +30,8 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = true,
-                    ErrorCode = (int)ErrorCode.Success,
-                    ErrorMessage = ErrorCode.Success.ToString(),
+                    ErrorCode = (int)ErrorCode.SUCCESS,
+                    ErrorMessage = ErrorCode.SUCCESS.ToString(),
                     Data = categoryRepository.InsertCategory(addCategory)
                 };
             }
@@ -41,7 +41,7 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                     ErrorMessage = ex.ToString(),
                     Data = -1
                 };

@@ -6,21 +6,13 @@ using System.Text.Json;
 
 namespace CSharp.RestAPI.Logging.Middlewares
 {
-    public class LoggingMiddleware
+    public class LoggingMiddleware(ILogger<LoggingMiddleware> logger, RequestDelegate next, IConfiguration configuration)
     {
-        private readonly ILogger<LoggingMiddleware> logger;
-        private readonly RequestDelegate next;
+        private readonly ILogger<LoggingMiddleware> logger = logger;
+        private readonly RequestDelegate next = next;
 
-        private IConfiguration configuration;
-        private readonly HashSet<string> notloggingProperties;
-
-        public LoggingMiddleware(ILogger<LoggingMiddleware> logger, RequestDelegate next, IConfiguration configuration)
-        {
-            this.logger = logger;
-            this.next = next;
-            this.configuration = configuration;
-            notloggingProperties = ["notLoggingData", "secretData"];
-        }
+        private IConfiguration configuration = configuration;
+        private readonly HashSet<string> notloggingProperties = ["notLoggingData", "secretData"];
 
         public async Task InvokeAsync(HttpContext context)
         {
@@ -78,8 +70,8 @@ namespace CSharp.RestAPI.Logging.Middlewares
 
                 BaseResponse<string> res = new()
                 {
-                    ErrorCode = (int)ErrorCode.SystemException,
-                    ErrorMessage = $"{ErrorCode.SystemException}",
+                    ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
+                    ErrorMessage = $"{ErrorCode.SYSTEM_EXCEPTION}",
                     Data = ex.ToString(),
                     Result = false
                 };

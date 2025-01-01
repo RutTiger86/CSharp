@@ -1,19 +1,12 @@
 ﻿namespace CSharp.Authorization.Token.Middlewares
 {
 
-    public class AuthLoggingMiddleware
+    public class AuthLoggingMiddleware(ILogger<AuthLoggingMiddleware> logger, RequestDelegate next, IConfiguration configuration)
     {
-        private readonly ILogger<AuthLoggingMiddleware> logger;
-        private readonly RequestDelegate next;
+        private readonly ILogger<AuthLoggingMiddleware> logger = logger;
+        private readonly RequestDelegate next = next;
 
-        private IConfiguration configuration;
-
-        public AuthLoggingMiddleware(ILogger<AuthLoggingMiddleware> logger, RequestDelegate next, IConfiguration configuration)
-        {
-            this.logger = logger;
-            this.next = next;
-            this.configuration = configuration;
-        }
+        private IConfiguration configuration = configuration;
 
         public async Task InvokeAsync(HttpContext context)
         {

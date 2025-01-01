@@ -1,6 +1,6 @@
 ﻿using CSharp.SocketNetwork.Interfaces;
-using CSharp.SocketNetwork.Service;
-using CSharp.SocketNetwork.Servies;
+using CSharp.SocketNetwork.Services;
+using CSharp.SocketNetwork.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 

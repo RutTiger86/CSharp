@@ -25,7 +25,7 @@ namespace CSharp.RestAPI.Repository.Controllers
             BaseResponse<T> response = new()
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.SystemException,
+                ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                 ErrorMessage = sDetail,
                 Data = default
             };

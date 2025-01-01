@@ -1,10 +1,8 @@
 ﻿using CSharp.RestAPI.Repository.Enums;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
-using CSharp.RestAPI.Repository.Repositories;
 using CSharp.RestAPI.Repository.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 
 namespace CSharp.RestAPI.Repository.Controllers
 {
@@ -34,7 +32,7 @@ namespace CSharp.RestAPI.Repository.Controllers
                 return new BaseResponse<long>
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.CategoryNotExists,
+                    ErrorCode = (int)ErrorCode.CATEGORY_NOT_EXISTS,
                     ErrorMessage = "category does not exist.",
                     Data = -1
                 };
@@ -52,7 +50,7 @@ namespace CSharp.RestAPI.Repository.Controllers
                 return new BaseResponse<long>
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.ProductNotExists,
+                    ErrorCode = (int)ErrorCode.PRODUCT_NOT_EXISTS,
                     ErrorMessage = "Product does not exist.",
                     Data = -1
                 };

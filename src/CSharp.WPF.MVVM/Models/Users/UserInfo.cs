@@ -2,8 +2,8 @@
 {
     public class UserInfo
     {
-        public long id { get; set; }
-        public string? email { get; set; }
-        public string? name { get; set; }
+        public long Id { get; set; }
+        public string? Email { get; set; }
+        public string? Name { get; set; }
     }
 }

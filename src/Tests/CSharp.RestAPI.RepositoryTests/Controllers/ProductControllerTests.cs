@@ -1,25 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AutoFixture;
 using CSharp.RestAPI.Repository.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
-using CSharp.RestAPI.Repository.Services;
-using Microsoft.Extensions.Logging;
-using CSharp.RestAPI.RepositoryTests;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-using Microsoft.AspNetCore.Mvc;
+using CSharp.RestAPI.Repository.Enums;
+using CSharp.RestAPI.Repository.Models;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
-using CSharp.RestAPI.Repository.Enums;
+using CSharp.RestAPI.Repository.Services;
+using CSharp.RestAPI.RepositoryTests;
 using FluentAssertions;
-using AutoFixture;
-using AutoFixture.Kernel;
-using CSharp.RestAPI.Repository.Models;
+using Microsoft.Extensions.Logging;
+using Moq;
 
-namespace CSharp.RestAPI.Repository.Controllers.Tests
+namespace CSharp.RestAPI.CSharp.RestAPI.RepositoryTests.Controllers
 {
     [TestClass()]
     public class ProductControllerTests : BaseTests
@@ -73,8 +64,8 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<ProductOverview>()
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = productOverview
             };
 
@@ -98,8 +89,8 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = 1
             };
 
@@ -126,7 +117,7 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.CategoryNotExists,
+                ErrorCode = (int)ErrorCode.CATEGORY_NOT_EXISTS,
                 ErrorMessage = "category does not exist.",
                 Data = -1
             };
@@ -152,8 +143,8 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = 1
             };
 
@@ -180,7 +171,7 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.ProductNotExists,
+                ErrorCode = (int)ErrorCode.PRODUCT_NOT_EXISTS,
                 ErrorMessage = "Product does not exist.",
                 Data = -1
             };

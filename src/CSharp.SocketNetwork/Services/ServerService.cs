@@ -3,28 +3,17 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace CSharp.SocketNetwork.Service
+namespace CSharp.SocketNetwork.Services
 {
-    public class ServerService : ISocketService
+    public class ServerService(string ip, int port, int maxClients) : ISocketService
     {
-        private readonly string ip;
-        private readonly int port;
-        private readonly int maxClients;
-        private readonly Socket listenSocket;
-        private readonly List<Socket> connectedClients;
-        private readonly SemaphoreSlim clientSemaphore;
-        private bool isRunning;
-
-        public ServerService(string ip, int port, int maxClients)
-        {
-            this.ip = ip;
-            this.port = port;
-            this.maxClients = maxClients;
-            listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            connectedClients = new List<Socket>();
-            clientSemaphore = new SemaphoreSlim(maxClients, maxClients);  // MaxClients에 따라 동기화 처리
-            isRunning = false;
-        }
+        private readonly string ip = ip;
+        private readonly int port = port;
+        private readonly int maxClients = maxClients;
+        private readonly Socket listenSocket = new(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private readonly List<Socket> connectedClients = [];
+        private readonly SemaphoreSlim clientSemaphore = new(maxClients, maxClients);
+        private bool isRunning = false;
 
         public async Task StartAsync()
         {

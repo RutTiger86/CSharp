@@ -4,28 +4,18 @@ using CSharp.Authorization.Session.Extensions;
 using CSharp.Authorization.Session.Interfaces;
 using CSharp.Authorization.Session.Models;
 using CSharp.Authorization.Session.Models.Request;
-using CSharp.Authorization.Session.Services;
-using CSharp.Commons.Helper;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Text.Json;
 
 namespace CSharp.Authorization.Session.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class AuthorizationController : ControllerBase
+    public class AuthorizationController(IAuthorizationService authorizationService, ILogger<AuthorizationController> logger) : ControllerBase
     {
 
-        private readonly ILogger<AuthorizationController> logger;
-        private readonly IAuthorizationService authorizationService;
-
-        public AuthorizationController(IAuthorizationService authorizationService, ILogger<AuthorizationController> logger)
-        {
-            this.logger = logger;
-            this.authorizationService = authorizationService;
-        }
+        private readonly ILogger<AuthorizationController> logger = logger;
+        private readonly IAuthorizationService authorizationService = authorizationService;
 
         [Route("Session")]
         [AllowPublic]

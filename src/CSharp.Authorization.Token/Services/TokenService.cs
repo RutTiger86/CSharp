@@ -1,7 +1,6 @@
 ﻿using CSharp.Authorization.Token.Enums;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 
@@ -14,23 +13,16 @@ namespace CSharp.Authorization.Token.Services
         ClaimsPrincipal? GetPrincipalFromExpiredToken(string token, bool ValidateLifetime = false);
     }
 
-    public class JwtTokenService : IJwtTokenService
+    public class JwtTokenService(IConfiguration configuration) : IJwtTokenService
     {
-        private readonly string secret;
-        private readonly string issuer;
-        private readonly string audience;
+        private readonly string secret = configuration["Jwt:Secret"];
+        private readonly string issuer = configuration["Jwt:Issuer"];
+        private readonly string audience = configuration["Jwt:Audience"];
 
         private readonly int accessTokenExpriesAddMin = 30;
         private readonly int refrashTokenExpriesAddDay = 15;
 
         private const string userId = "userId";
-
-        public JwtTokenService(IConfiguration configuration)
-        {
-            secret = configuration["Jwt:Secret"];
-            issuer = configuration["Jwt:Issuer"];
-            audience = configuration["Jwt:Audience"];
-        }
 
         public string GenerateToken(IEnumerable<Claim> claims, TokenType tokenType)
         {

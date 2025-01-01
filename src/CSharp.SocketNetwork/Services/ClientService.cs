@@ -3,20 +3,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace CSharp.SocketNetwork.Servies
+namespace CSharp.SocketNetwork.Services
 {
-    public class ClientService : IClientService
+    public class ClientService(string ip, int port) : IClientService
     {
-        private readonly string ip;
-        private readonly int port;
-        private readonly Socket clientSocket;
-
-        public ClientService(string ip, int port)
-        {
-            this.ip = ip;
-            this.port = port;
-            this.clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        }
+        private readonly string ip = ip;
+        private readonly int port = port;
+        private readonly Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
         public async Task StartAsync()
         {

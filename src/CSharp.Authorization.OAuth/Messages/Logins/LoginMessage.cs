@@ -3,11 +3,7 @@ using CSharp.Authorization.OAuth.Models.Google;
 
 namespace CSharp.Authorization.OAuth.Messages.Logins
 {
-    public class LoginMessage : ValueChangedMessage<GoogleUserInfo>
+    public class LoginMessage(GoogleUserInfo loginUserInfo) : ValueChangedMessage<GoogleUserInfo>(loginUserInfo)
     {
-        public LoginMessage(GoogleUserInfo loginUserInfo) : base(loginUserInfo)
-        {
-
-        }
     }
 }

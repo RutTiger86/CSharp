@@ -1,7 +1,6 @@
 using CSharp.Authorization.Token.Extensions;
 using CSharp.Authorization.Token.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;

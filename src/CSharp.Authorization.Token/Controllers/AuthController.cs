@@ -2,21 +2,14 @@
 using CSharp.Authorization.Token.Models.Auth;
 using CSharp.Authorization.Token.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
-using System.Security.Claims;
 
 namespace CSharp.Authorization.Token.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : Controller
+    public class AuthController(IJwtTokenService jwtTokenService) : Controller
     {
-        private readonly IJwtTokenService jwtTokenService;
-
-        public AuthController(IJwtTokenService jwtTokenService)
-        {
-            this.jwtTokenService = jwtTokenService;
-        }
+        private readonly IJwtTokenService jwtTokenService = jwtTokenService;
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel model)

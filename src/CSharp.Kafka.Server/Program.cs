@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
 namespace CSharp.Kafka.Server
 {
     class KafkaServer

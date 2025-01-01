@@ -2,11 +2,7 @@
 
 namespace CSharp.WPF.MVVM.Messages
 {
-    public class ProgramShutDownMessage : ValueChangedMessage<bool>
+    public class ProgramShutDownMessage(bool ShutDwonResult) : ValueChangedMessage<bool>(ShutDwonResult)
     {
-        public ProgramShutDownMessage(bool ShutDwonResult) : base(ShutDwonResult)
-        {
-
-        }
     }
 }

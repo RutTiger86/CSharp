@@ -2,11 +2,7 @@
 
 namespace CSharp.WPF.MVVM.Messages.Login
 {
-    public class LogoutMessage : ValueChangedMessage<bool>
+    public class LogoutMessage(bool LogoutResult) : ValueChangedMessage<bool>(LogoutResult)
     {
-        public LogoutMessage(bool LogoutResult) : base(LogoutResult)
-        {
-
-        }
     }
 }

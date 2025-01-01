@@ -1,8 +1,6 @@
 ﻿using CSharp.Authorization.Session.Attributes;
 using CSharp.Authorization.Session.Models;
 using CSharp.Commons.Helper;
-using System.Diagnostics;
-using System.Net;
 using System.Text.Json;
 
 namespace CSharp.Authorization.Session.Extensions

@@ -1,5 +1,4 @@
 ﻿using CSharp.RestAPI.Repository.Enums;
-using CSharp.RestAPI.Repository.Models;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
 using CSharp.RestAPI.Repository.Repositories;
@@ -35,8 +34,8 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<ProductOverview>()
                 {
                     Result = true,
-                    ErrorCode = (int)ErrorCode.Success,
-                    ErrorMessage = ErrorCode.Success.ToString(),
+                    ErrorCode = (int)ErrorCode.SUCCESS,
+                    ErrorMessage = ErrorCode.SUCCESS.ToString(),
                     Data = new ProductOverview()
                     {
                         Categories = categoryRepository.SelectProductCategoryInfos(),
@@ -49,7 +48,7 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<ProductOverview>()
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                     ErrorMessage = ex.ToString(),
                     Data = null
                 };
@@ -64,8 +63,8 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = true,
-                    ErrorCode = (int)ErrorCode.Success,
-                    ErrorMessage = ErrorCode.Success.ToString(),
+                    ErrorCode = (int)ErrorCode.SUCCESS,
+                    ErrorMessage = ErrorCode.SUCCESS.ToString(),
                     Data = productRepository.InsertProduct(addProduct)
                 };
             }
@@ -75,7 +74,7 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                     ErrorMessage = ex.ToString(),
                     Data = -1
                 };
@@ -90,8 +89,8 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = true,
-                    ErrorCode = (int)ErrorCode.Success,
-                    ErrorMessage = ErrorCode.Success.ToString(),
+                    ErrorCode = (int)ErrorCode.SUCCESS,
+                    ErrorMessage = ErrorCode.SUCCESS.ToString(),
                     Data = productRepository.InsertProductStock(addProductStock)
                 };
             }
@@ -101,7 +100,7 @@ namespace CSharp.RestAPI.Repository.Services
                 return new BaseResponse<long>()
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.SystemException,
+                    ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                     ErrorMessage = ex.ToString(),
                     Data = -1
                 };

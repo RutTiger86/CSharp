@@ -13,9 +13,9 @@ namespace CSharp.WPF.MVVM.Services.Login
         {
             return Task.FromResult(new UserInfo()
             {
-                email = "test@test.com",
-                id = 100,
-                name = "Test Name",
+                Email = "test@test.com",
+                Id = 100,
+                Name = "Test Name",
             });
         }
 

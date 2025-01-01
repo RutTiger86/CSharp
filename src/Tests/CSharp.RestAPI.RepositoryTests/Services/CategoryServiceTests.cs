@@ -3,12 +3,13 @@ using CSharp.RestAPI.Repository.Enums;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
 using CSharp.RestAPI.Repository.Repositories;
+using CSharp.RestAPI.Repository.Services;
 using CSharp.RestAPI.RepositoryTests;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace CSharp.RestAPI.Repository.Services.Tests
+namespace CSharp.RestAPI.CSharp.RestAPI.RepositoryTests.Services
 {
     [TestClass()]
     public class CategoryServiceTests : BaseTests
@@ -46,8 +47,8 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = categoryId
             };
 
@@ -73,7 +74,7 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.SystemException,
+                ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                 ErrorMessage = testException.ToString(),
                 Data = -1
             };

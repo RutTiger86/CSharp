@@ -1,22 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AutoFixture;
 using CSharp.RestAPI.Repository.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoFixture;
-using CSharp.RestAPI.Repository.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using CSharp.RestAPI.RepositoryTests;
-using Moq;
+using CSharp.RestAPI.Repository.Enums;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
-using CSharp.RestAPI.Repository.Enums;
+using CSharp.RestAPI.Repository.Services;
+using CSharp.RestAPI.RepositoryTests;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using Moq;
 
-namespace CSharp.RestAPI.Repository.Controllers.Tests
+namespace CSharp.RestAPI.CSharp.RestAPI.RepositoryTests.Controllers
 {
     [TestClass()]
     public class CategoryControllerTests : BaseTests
@@ -50,8 +43,8 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = 1
             };
             categoryService.Setup(x => x.CategoryExists(categorytRequest.ParentCategoryId.Value)).Returns(true);
@@ -78,8 +71,8 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = 1
             };
 
@@ -105,7 +98,7 @@ namespace CSharp.RestAPI.Repository.Controllers.Tests
             var expectedResult = new BaseResponse<long>
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.CategoryNotExists,
+                ErrorCode = (int)ErrorCode.CATEGORY_NOT_EXISTS,
                 ErrorMessage = "Parent category does not exist.",
                 Data = -1
             };

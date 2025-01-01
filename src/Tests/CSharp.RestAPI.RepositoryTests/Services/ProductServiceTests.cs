@@ -4,12 +4,13 @@ using CSharp.RestAPI.Repository.Models;
 using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
 using CSharp.RestAPI.Repository.Repositories;
+using CSharp.RestAPI.Repository.Services;
 using CSharp.RestAPI.RepositoryTests;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace CSharp.RestAPI.Repository.Services.Tests
+namespace CSharp.RestAPI.CSharp.RestAPI.RepositoryTests.Services
 {
     [TestClass()]
     public class ProductServiceTests : BaseTests
@@ -60,8 +61,8 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<ProductOverview>()
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = new ProductOverview()
                 {
                     Categories = categoryInfos,
@@ -91,7 +92,7 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<ProductOverview>()
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.SystemException,
+                ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                 ErrorMessage = testException.ToString(),
                 Data = null
             };
@@ -119,8 +120,8 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = productId
             };
 
@@ -146,7 +147,7 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.SystemException,
+                ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                 ErrorMessage = testException.ToString(),
                 Data = -1
             };
@@ -173,8 +174,8 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = true,
-                ErrorCode = (int)ErrorCode.Success,
-                ErrorMessage = ErrorCode.Success.ToString(),
+                ErrorCode = (int)ErrorCode.SUCCESS,
+                ErrorMessage = ErrorCode.SUCCESS.ToString(),
                 Data = productStockId
             };
 
@@ -201,7 +202,7 @@ namespace CSharp.RestAPI.Repository.Services.Tests
             var expectedResult = new BaseResponse<long>()
             {
                 Result = false,
-                ErrorCode = (int)ErrorCode.SystemException,
+                ErrorCode = (int)ErrorCode.SYSTEM_EXCEPTION,
                 ErrorMessage = testException.ToString(),
                 Data = -1
             };

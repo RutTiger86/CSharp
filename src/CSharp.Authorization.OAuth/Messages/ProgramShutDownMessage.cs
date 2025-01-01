@@ -2,11 +2,7 @@
 
 namespace CSharp.Authorization.OAuth.Messages
 {
-    public class ProgramShutDownMessage : ValueChangedMessage<bool>
+    public class ProgramShutDownMessage(bool ShutDwonResult) : ValueChangedMessage<bool>(ShutDwonResult)
     {
-        public ProgramShutDownMessage(bool ShutDwonResult) : base(ShutDwonResult)
-        {
-
-        }
     }
 }

@@ -3,7 +3,6 @@ using CSharp.RestAPI.Repository.Models.Requests;
 using CSharp.RestAPI.Repository.Models.Responses;
 using CSharp.RestAPI.Repository.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace CSharp.RestAPI.Repository.Controllers
 {
@@ -24,7 +23,7 @@ namespace CSharp.RestAPI.Repository.Controllers
                 return new BaseResponse<long>
                 {
                     Result = false,
-                    ErrorCode = (int)ErrorCode.CategoryNotExists,
+                    ErrorCode = (int)ErrorCode.CATEGORY_NOT_EXISTS,
                     ErrorMessage = "Parent category does not exist.",
                     Data = -1
                 };

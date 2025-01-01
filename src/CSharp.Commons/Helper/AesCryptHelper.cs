@@ -2,7 +2,6 @@
 
 namespace CSharp.Commons.Helper
 {
-
     public class AesCryptHelper
     {
         public static byte[] CreateKey()
